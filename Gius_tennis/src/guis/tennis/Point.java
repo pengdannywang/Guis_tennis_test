@@ -1,7 +1,7 @@
 package guis.tennis;
 
 public enum Point {
-	ZERO(1, "0"), FIFTEEN(2, "15"), THIRTY(3, "30"), FORTY(4, "40"), OVERFORTY(5,"Advantage");
+	ZERO(0, "0"), FIFTEEN(1, "15"), THIRTY(2, "30"), FORTY(3, "40"), OVERFORTY(4,"Advantage");
 
 	private Integer score;
 	private String tennis_score;

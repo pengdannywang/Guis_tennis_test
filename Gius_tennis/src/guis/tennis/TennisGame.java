@@ -1,21 +1,20 @@
 package guis.tennis;
 
 public class TennisGame {
-	
-	
+
 	Player player1;
 	Player player2;
 	boolean gameCompleted = false;
 	String results;
 
 	public TennisGame(Player player1, Player player2) {
-		
+
 		this.player1 = player1;
-		
+
 		this.player2 = player2;
-		
+
 		this.gameCompleted = false;
-		
+
 		this.results = "";
 	}
 
@@ -24,33 +23,38 @@ public class TennisGame {
 		int p1Score = Point.PointByTennisScore(this.player1.getCurrentGameScore()).getScore();
 
 		int p2Score = Point.PointByTennisScore(player2.getCurrentGameScore()).getScore();
-		
-		if (playerName.equals(this.player1.getPlayerName())) {
 
-			p1Score++;
+		if (playerName.equals(this.player1.getPlayerName())) {
+			if (p1Score <=3)
+				p1Score++;
+			else
+				p1Score = 3;
 
 			this.player1.setCurrentGameScore(Point.PointByScore(p1Score).getTennisScore());
 
 		} else {
 
-			p2Score++;
+			if (p2Score <=3)
+				p2Score++;
+			else
+				p2Score = 3;
 
 			this.player2.setCurrentGameScore(Point.PointByScore(p2Score).getTennisScore());
 
 		}
 
-		if (p1Score == p2Score && p1Score >= 4) {
-			
+		if (p1Score == p2Score && p1Score >= 3) {
+
 			this.results = "Deuce ";
-		
-		} else if (p1Score <= 4 && p2Score <= 4) {
+
+		} else if (p1Score <= 3 && p2Score <= 3) {
 
 			this.results = player1.getCurrentGameScore() + "-" + player2.getCurrentGameScore();
 
 		} else {
 
 			int minusResults = p1Score - p2Score;
-			
+
 			if (minusResults == 1) {
 
 				this.results = "Advantage " + player1.getPlayerName();
@@ -59,7 +63,7 @@ public class TennisGame {
 
 				this.results = "Advantage " + player2.getPlayerName();
 
-			} else if (minusResults == 2) {
+			} else if (minusResults >= 2) {
 
 				player1.setSetScore(player1.getSetScore() + 1);
 
@@ -68,10 +72,10 @@ public class TennisGame {
 				player2.setCurrentGameScore(Point.ZERO.getTennisScore());
 
 				gameCompleted = true;
-
+				
 				this.results = "";
 
-			} else if (minusResults == -2) {
+			} else if (minusResults <= -2) {
 
 				player2.setSetScore(player2.getSetScore() + 1);
 
@@ -95,9 +99,10 @@ public class TennisGame {
 
 	public void tieGameScore(String playerName) {
 
-		int p1Score = Point.PointByTennisScore(player1.getCurrentGameScore()).getScore();
+		int p1Score = Integer.parseInt(this.player1.getCurrentGameScore());
 
-		int p2Score = Point.PointByTennisScore(player1.getCurrentGameScore()).getScore();
+		int p2Score = Integer.parseInt(this.player2.getCurrentGameScore());
+
 
 		if (playerName.equals(player1.getPlayerName())) {
 
@@ -128,33 +133,33 @@ public class TennisGame {
 			if (minusResults == 1) {
 
 				this.results = "Advantage " + player1.getPlayerName();
-			
+
 			} else if (minusResults == -1) {
 
 				this.results = "Advantage " + player2.getPlayerName();
-			
-			} else if (minusResults == 2) {
-				
+
+			} else if (minusResults >= 2) {
+
 				player1.setSetScore(player1.getSetScore() + 1);
-				
+
 				player1.setCurrentGameScore(Point.ZERO.getTennisScore());
-				
+
 				player2.setCurrentGameScore(Point.ZERO.getTennisScore());
-				
+
 				gameCompleted = true;
-				
+
 				this.results = "";
-			
-			} else {
-				
+
+			} else if (minusResults <= -2) {
+
 				player2.setSetScore(player2.getSetScore() + 1);
-				
+
 				player1.setCurrentGameScore(Point.ZERO.getTennisScore());
-				
+
 				player2.setCurrentGameScore(Point.ZERO.getTennisScore());
-				
+
 				gameCompleted = true;
-				
+
 				this.results = "";
 			}
 		}
@@ -162,9 +167,9 @@ public class TennisGame {
 	}
 
 	public boolean isGameComplated() {
-		
+
 		return gameCompleted;
-	
+
 	}
 
 }

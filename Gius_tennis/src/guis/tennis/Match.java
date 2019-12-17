@@ -21,6 +21,9 @@ public Match(String playerName1, String playerName2) {
   public void score() {
 	  System.out.println( ts.score());
   }
+  public String getScore() {
+	  return ts.score();
+  }
   public void pointWonBy(String playerName) {
 	  ts.pointWonBy(playerName);
   }
