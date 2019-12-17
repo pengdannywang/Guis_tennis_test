@@ -16,35 +16,9 @@ import guis.tennis.Match;
  */
 class TennisTest {
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
-	}
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@AfterAll
-	static void tearDownAfterClass() throws Exception {
-	}
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@BeforeEach
-	void setUp() throws Exception {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@AfterEach
-	void tearDown() throws Exception {
-	}
-
-	//@Test
+	@Test
 	void test() {
 		Match match = new Match("player 1", "player 2");
 		  match.pointWonBy("player 1");
@@ -71,7 +45,7 @@ class TennisTest {
 		  match.score();
 		 
 	}
-	//@Test
+	@Test
 	public void SevenToFive() {
 		Match match = new Match("player 1", "player 2");
 		match.pointWonBy("player 1");
