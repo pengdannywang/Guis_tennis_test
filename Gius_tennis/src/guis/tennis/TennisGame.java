@@ -53,42 +53,30 @@ public class TennisGame {
 
 		} else {
 
-			int minusResults = p1Score - p2Score;
-
-			if (minusResults == 1) {
-
-				this.results = "Advantage " + player1.getPlayerName();
-
-			} else if (minusResults == -1) {
-
-				this.results = "Advantage " + player2.getPlayerName();
-
-			} else if (minusResults >= 2) {
-
-				player1.setSetScore(player1.getSetScore() + 1);
-
-				player1.setCurrentGameScore(Point.ZERO.getTennisScore());
-
-				player2.setCurrentGameScore(Point.ZERO.getTennisScore());
-
-				gameCompleted = true;
-				
-				this.results = "";
-
-			} else if (minusResults <= -2) {
-
-				player2.setSetScore(player2.getSetScore() + 1);
-
-				player1.setCurrentGameScore(Point.ZERO.getTennisScore());
-
-				player2.setCurrentGameScore(Point.ZERO.getTennisScore());
-
-				gameCompleted = true;
-
-				this.results = "";
-			}
+			advantageWonResult(p1Score, p2Score);
 		}
 
+	}
+
+	private void advantageWonResult(int p1Score, int p2Score) {
+		int minusResults = p1Score - p2Score;
+
+		if (minusResults == 1) {
+
+			this.results = "Advantage " + player1.getPlayerName();
+
+		} else if (minusResults == -1) {
+
+			this.results = "Advantage " + player2.getPlayerName();
+
+		} else if (minusResults >= 2) {
+
+
+			wonAGame(player1,player2);
+		} else if (minusResults <= -2) {
+
+			wonAGame(player2,player1);
+		}
 	}
 
 	public String score() {
@@ -128,42 +116,21 @@ public class TennisGame {
 
 		} else {
 
-			int minusResults = p1Score - p2Score;
-
-			if (minusResults == 1) {
-
-				this.results = "Advantage " + player1.getPlayerName();
-
-			} else if (minusResults == -1) {
-
-				this.results = "Advantage " + player2.getPlayerName();
-
-			} else if (minusResults >= 2) {
-
-				player1.setSetScore(player1.getSetScore() + 1);
-
-				player1.setCurrentGameScore(Point.ZERO.getTennisScore());
-
-				player2.setCurrentGameScore(Point.ZERO.getTennisScore());
-
-				gameCompleted = true;
-
-				this.results = "";
-
-			} else if (minusResults <= -2) {
-
-				player2.setSetScore(player2.getSetScore() + 1);
-
-				player1.setCurrentGameScore(Point.ZERO.getTennisScore());
-
-				player2.setCurrentGameScore(Point.ZERO.getTennisScore());
-
-				gameCompleted = true;
-
-				this.results = "";
-			}
+			advantageWonResult(p1Score, p2Score);
 		}
 
+	}
+
+	private void wonAGame(Player p1,Player p2) {
+		p1.setSetScore(p1.getSetScore() + 1);
+
+		p2.setCurrentGameScore(Point.ZERO.getTennisScore());
+
+		p1.setCurrentGameScore(Point.ZERO.getTennisScore());
+
+		gameCompleted = true;
+
+		this.results = "";
 	}
 
 	public boolean isGameComplated() {

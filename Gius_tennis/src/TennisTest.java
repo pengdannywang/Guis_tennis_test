@@ -111,6 +111,23 @@ class TennisTest {
 		match.pointWonBy("player 2");
 		match.score();
 		match.pointWonBy("player 2");
+		match.score();
+		
+		match.pointWonBy("player 1");
+		match.score();
+		match.pointWonBy("player 1");
+		match.score();
+		match.pointWonBy("player 1");
+		match.score();
+		match.pointWonBy("player 1");
+		match.score();
+		match.pointWonBy("player 2");
+		match.score();
+		match.pointWonBy("player 2");
+		match.score();
+		match.pointWonBy("player 2");
+		match.score();
+		match.pointWonBy("player 2");
 		
 		match.score();
 		match.pointWonBy("player 1");
@@ -145,23 +162,6 @@ class TennisTest {
 		match.pointWonBy("player 2");
 		match.score();
 		match.pointWonBy("player 2");
-		
-		match.score();
-		match.pointWonBy("player 1");
-		match.score();
-		match.pointWonBy("player 1");
-		match.score();
-		match.pointWonBy("player 1");
-		match.score();
-		match.pointWonBy("player 1");
-		match.score();
-		match.pointWonBy("player 2");
-		match.score();
-		match.pointWonBy("player 2");
-		match.score();
-		match.pointWonBy("player 2");
-		match.score();
-		match.pointWonBy("player 2");
 		match.score();
 		
 		match.pointWonBy("player 1");
@@ -198,7 +198,7 @@ class TennisTest {
 		match.pointWonBy("player 2");
 		match.score();
 		
-		
+		//tie-breaker 
 		match.pointWonBy("player 1");
 		match.score();
 		match.pointWonBy("player 2");
@@ -226,6 +226,9 @@ class TennisTest {
 		match.score();
 		match.pointWonBy("player 1");
 		match.score();
+		match.pointWonBy("player 2");
+		match.score();
+		match.pointWonBy("player 2");
 		match.pointWonBy("player 2");
 		match.score();
 	}

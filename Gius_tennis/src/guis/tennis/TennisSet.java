@@ -30,24 +30,36 @@ public class TennisSet {
 	public void pointWonBy(String playerName) {
 
 	if (player1.getSetScore() <= 5 && player2.getSetScore() <= 5) {
+		
 			this.currentTennisGame.pointWonBy(playerName);
+		
 			if (this.currentTennisGame.isGameComplated()) {
 				this.tennisGames.add(currentTennisGame);
 			}
 		} else if (player1.getSetScore() == 6 && player2.getSetScore() == 6) {
+		
 			this.currentTennisGame.tieGameScore(playerName);
+			
 			if (this.currentTennisGame.isGameComplated()) {
+				
 				this.tennisGames.add(currentTennisGame);
+				
 				this.currentTennisGame =  new TennisGame(player1, player2);
+				
 				this.isSetCompleted = true;
 			}
 		} else {
+			
 			this.currentTennisGame.pointWonBy(playerName);
+			
 			int minusSetResults = Math.abs(player1.getSetScore() - player2.getSetScore());
 
 			if (minusSetResults >= 2 && this.currentTennisGame.isGameComplated()) {
+			
 				this.tennisGames.add(currentTennisGame);
+				
 				this.currentTennisGame =  new TennisGame(player1, player2);
+				
 				this.isSetCompleted = true;
 			
 				
