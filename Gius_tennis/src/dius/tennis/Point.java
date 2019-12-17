@@ -1,4 +1,4 @@
-package guis.tennis;
+package dius.tennis;
 
 public enum Point {
 	ZERO(0, "0"), FIFTEEN(1, "15"), THIRTY(2, "30"), FORTY(3, "40"), OVERFORTY(4,"Advantage");

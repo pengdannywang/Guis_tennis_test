@@ -1,4 +1,4 @@
-package guis.tennis;
+package dius.tennis;
 
 import java.util.ArrayList;
 import java.util.List;

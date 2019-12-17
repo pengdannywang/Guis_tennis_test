@@ -1,4 +1,4 @@
-package guis.tennis;
+package dius.tennis;
 
 public class TennisGame {
 
